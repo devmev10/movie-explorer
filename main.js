@@ -18,6 +18,7 @@ function findMovie(){
                 .then(response => response.json())
                 .then(DATA => {
                     console.log(DATA)
+                    localStorage.setItem('genre', DATA.imdbID)
                     document.querySelector('main').innerHTML += `
                                                             <img src = ${DATA.Poster}>
                                                             <h2>${DATA.Title}</h2>

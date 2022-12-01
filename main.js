@@ -12,12 +12,21 @@ function findMovie(){
             console.log(data)
             let arr = data.Search.splice(0,3)
             
+            
             for(item of arr){
-                console.log(item.imdbID)
-                document.querySelector('main').innerHTML += `
-                                                            <img src = ${item.Poster}>
-                                                            <h2>${item.Title}</h2>
-                                                            <span>${item.Year}</span>`
+                fetch(`http://www.omdbapi.com/?i=${item.imdbID}&apikey=23eb338b`)
+                .then(response => response.json())
+                .then(DATA => {
+                    console.log(DATA)
+                    document.querySelector('main').innerHTML += `
+                                                            <img src = ${DATA.Poster}>
+                                                            <h2>${DATA.Title}</h2>
+                                                            <span>${DATA.Year}</span>
+                                                            <span>${DATA.imdbRating}</span>
+                                                            `
+                })
+                
+                
             }
             
         })

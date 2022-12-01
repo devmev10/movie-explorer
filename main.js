@@ -21,8 +21,12 @@ function findMovie(){
                     document.querySelector('main').innerHTML += `
                                                             <img src = ${DATA.Poster}>
                                                             <h2>${DATA.Title}</h2>
-                                                            <span>${DATA.Year}</span>
                                                             <span>${DATA.imdbRating}</span>
+                                                            <span>${DATA.Runtime}</span>
+                                                            <span>${DATA.Genre}</span>
+                                                            <span>${DATA.Plot}</span>
+                                                            <span>${DATA.Year}</span>
+                                                            
                                                             `
                 })
                 

@@ -1,5 +1,6 @@
 document.querySelector('button').addEventListener('click', findMovie)
-
+let movieArray = []
+let myClass
 
 function findMovie(){
     let title = document.querySelector('input').value
@@ -14,7 +15,9 @@ function findMovie(){
             //Local Storage for movies which are added via clicking watchlist button
             document.querySelector('main').addEventListener('click', function(e){
                 let target = e.target
-                if(target.matches(`.${arr.imdbID}`)) {console.log(target)}
+                if(target.id === movieArray.myClass){}//Extract the whole object and display on div}
+                
+                
             })
             
             // Loop over the array of 3 movies and extract movie details
@@ -22,25 +25,39 @@ function findMovie(){
                 fetch(`http://www.omdbapi.com/?i=${item.imdbID}&apikey=23eb338b`)
                 .then(response => response.json())
                 .then(DATA => {
-                    console.log(DATA)
-                    let htmlContent = `<div >
+                   
+                    myClass = item.imdbID
+                   
+                    let htmlContent = `<div class = ${myClass}>
                                             <img src = ${DATA.Poster}>
                                             <h2>${DATA.Title}</h2>
-                                            <button class = ${DATA.imdbID} >Add to Watchlist</button>
+                                            <button id = ${DATA.imdbID} >Add to Watchlist</button>
                                             <span>${DATA.imdbRating}</span>
                                             <span>${DATA.Runtime}</span>
-                                            <span>${DATA.Genre}</span>
+                                            <span>${DATA.Genre}</span>S
                                             <span>${DATA.Plot}</span>
                                             <span>${DATA.Year}</span>
                                         </div>`
                                         
-                    filmList.push(htmlContent)
                     
+                    movieArray.push({
+                        myClass: {
+                            poster: DATA.Poster,
+                            title: DATA.Title,
+                            ID: DATA.imdbID,
+                            imdbRating: DATA.imdbRating,
+                            runTime: DATA.Runtime,
+                            genre: DATA.Genre,
+                            plot: DATA.Plot,
+                            year: DATA.Year
+                        }
+                    }) 
                     //Render movie details into HTML
                     document.querySelector('main').innerHTML += htmlContent                    
                 })          
              }
             
         })
+        console.log(movieArray)
 }
 

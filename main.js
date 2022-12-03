@@ -1,6 +1,3 @@
-
-
-
 document.querySelector('button').addEventListener('click', findMovie)
 
 
@@ -40,24 +37,10 @@ function findMovie(){
                     filmList.push(htmlContent)
                     
                     //Render movie details into HTML
-                    document.querySelector('main').innerHTML += htmlContent
-
-                
-
-                    
-                })
-
-                
-            
-                
-                
-            }
+                    document.querySelector('main').innerHTML += htmlContent                    
+                })          
+             }
             
         })
-        
-
-    
-
-
 }
 

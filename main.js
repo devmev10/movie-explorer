@@ -2,7 +2,7 @@
 
 
 document.querySelector('button').addEventListener('click', findMovie)
-let filmList = []
+
 
 function findMovie(){
     let title = document.querySelector('input').value
@@ -54,7 +54,6 @@ function findMovie(){
             }
             
         })
-        console.log(filmList)
         
 
     

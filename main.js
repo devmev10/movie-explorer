@@ -39,19 +39,19 @@ function findMovie(){
                                             <span>${DATA.Year}</span>
                                         </div>`
                                         
-                    
-                    movieArray.push({
-                        myClass: {
-                            poster: DATA.Poster,
-                            title: DATA.Title,
-                            ID: DATA.imdbID,
-                            imdbRating: DATA.imdbRating,
-                            runTime: DATA.Runtime,
-                            genre: DATA.Genre,
-                            plot: DATA.Plot,
-                            year: DATA.Year
-                        }
-                    }) 
+                    let movie = {};
+                    movie[myClass] = {
+                        poster: DATA.Poster,
+                        title: DATA.Title,
+                        ID: DATA.imdbID,
+                        imdbRating: DATA.imdbRating,
+                        runTime: DATA.Runtime,
+                        genre: DATA.Genre,
+                        plot: DATA.Plot,
+                        year: DATA.Year
+                    }
+
+                    movieArray.push(movie) 
                     //Render movie details into HTML
                     document.querySelector('main').innerHTML += htmlContent                    
                 })          
